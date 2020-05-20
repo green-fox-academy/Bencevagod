@@ -1,0 +1,107 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  padding: 100px 350px;
+  padding-bottom: 10px;
+  width: 40%;
+}
+
+#header1 {
+  color: rgb(202, 202, 202);
+  background-color: #3b3b3b;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding-left: 340px;
+  height: 33px;
+  overflow: hidden;
+  z-index: 2;
+  transition: 0.3s;
+  user-select: none;
+}
+
+#header1 > h1 {
+  margin-top: 5px;
+}
+
+#header1:hover {
+  color: #3b3b3b;
+  background-color: rgb(202, 202, 202);
+}
+
+#header1:hover + #header2 {
+  color: rgb(202, 202, 202);
+  background-color: #3b3b3b;
+}
+
+#header2 {
+  color: #3b3b3b;
+  background-color: rgb(202, 202, 202);
+  position: fixed;
+  top: 20px;
+  width: 100%;
+  padding-left: 400px;
+  height: 37px;
+  overflow: hidden;
+  z-index: 1;
+  transition: 0.3s;
+  user-select: none;
+}
+
+#header2 > h1 {
+  margin-top: 0;
+}
+
+input {
+  width: 170px;
+  border: solid thin black;
+}
+
+#firstp {
+  border: solid thin;
+  padding: 5px;
+}
+
+button {
+  display: block;
+  margin-bottom: 80px;
+}
+
+#line {
+  border: solid thin;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+#posts {
+  position: sticky;
+  top: 55px;
+  background-color: rgb(255, 255, 255, 0.9);
+  width: 100%;
+}
+
+section {
+  border: solid thin;
+  margin-bottom: 70px;
+  padding: 5px;
+}
+
+section > h1 {
+  margin-top: 0;
+}
+
+section > p {
+  margin-bottom: 0;
+}
+
+#line2 {
+  border-top: thin solid;
+  border-bottom: thin solid;
+  margin-top: 150px;
+  padding: 3px;
+  margin-left: 200px;
+  margin-right: 200px;
+}
