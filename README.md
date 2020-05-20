@@ -1,2 +1,2 @@
 # Bencevagod
-[Bencevagod.github.io](http://bencevagod.github.io)
+[Bencevagod.github.io](https://github.com/Bencevagod/bencevagod.github.io)
