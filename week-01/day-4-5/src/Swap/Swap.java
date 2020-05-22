@@ -6,11 +6,9 @@ public class Swap {
         int b = 526;
         System.out.println("Before swap, a = " + a + ", b = " + b);
 
-        int c = a;
-        int d = b;
-
-        a = d;
-        b = c;
+        int temporal = a;
+        a = b;
+        b = temporal;
 
         System.out.println("After swap, a = " + a + ", b = " + b);
         System.out.println("MAGIC!");

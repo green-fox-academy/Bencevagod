@@ -7,7 +7,8 @@ public class MileToKmConverter {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter miles needs to be converted to kms: ");
         float userinp = scanner.nextFloat();
+        float conversionRate = 1.609344f;
 
-        System.out.println(userinp+" miles = "+(userinp*1.609344)+" kilometres");
+        System.out.println(userinp+" miles = "+(userinp*conversionRate)+" kilometres");
     }
 }
