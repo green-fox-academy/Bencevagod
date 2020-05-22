@@ -10,7 +10,6 @@ public class DrawPyramid {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter lines of pyramid: ");
         int lines = scanner.nextInt();
-
         for (int i = 1; i <= lines; i++) {
             for (int j = 1; j <= lines - i; j++) {
                 System.out.print(" ");
