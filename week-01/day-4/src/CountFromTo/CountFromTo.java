@@ -13,10 +13,13 @@ public class CountFromTo {
             System.out.print("Gimme second num: ");
             num2 = scanner.nextInt();
             if (num1 > num2){
-                System.out.println("num1 must be smaller"); 
+                System.out.println("num1 must be smaller");
             }
         } while (num1 > num2);
-
+        while (num1 <= num2){
+            System.out.println(num1);
+            num1++;
+        }
 
 
     }
