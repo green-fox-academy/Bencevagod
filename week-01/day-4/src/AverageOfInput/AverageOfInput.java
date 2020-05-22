@@ -14,6 +14,6 @@ public class AverageOfInput {
         }
 
         System.out.println("The sum of numbers: " + sum);
-        System.out.println("The average of numbers: " + sum/5);
+        System.out.println("The average of numbers: " + (float)sum/5);
     }
 }
