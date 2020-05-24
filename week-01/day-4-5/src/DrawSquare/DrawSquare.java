@@ -10,16 +10,14 @@ public class DrawSquare {
         int lines = s.nextInt();
 
         for (int i = 0; i < lines; i++){
-            if (i == 0 || i == lines-1){
-                for (int j = 1; j < lines; j++) {
-                    System.out.print("+");
-                }
-            } else {
-                for (int j = 1; j < lines; j++){
+            for (int j = 1; j < lines; j++) {
+                if (i == 0 || i == lines-1){
+                    System.out.print("+ ");
+                } else {
                     if (j == 1){
-                        System.out.print("+");
+                        System.out.print("+ ");
                     } else {
-                        System.out.print(" ");
+                        System.out.print("  ");
                     }
                 }
             }
