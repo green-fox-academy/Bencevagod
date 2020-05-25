@@ -4,7 +4,9 @@ public class Unique {
     public static void main(String[] args) {
         int[] nums = {1, 11, 34, 11, 52, 61, 1, 34};
         int[] uniqueNums = unique(nums);
-        for (int i = 0; i <uniqueNums.length; i++){
+        int[] erasedNulls = eraseNulls(uniqueNums);
+
+        for (int i = 0; i <erasedNulls.length; i++){
 
             System.out.println(uniqueNums[i]);
         }
@@ -26,5 +28,24 @@ public class Unique {
             }
         }
         return false;
+    }
+    public static int[] eraseNulls (int[] arr){
+        int nulls = 0;
+        for (int i = 0; i < arr.length; i++){
+            if (arr[i] == 0){
+                nulls++;
+            }
+        }
+        int[] noNullArray = new int[arr.length - nulls];
+
+        for (int i = 0; i < arr.length; i++){
+            if (arr[i] != 0){
+                int j = 0;
+                noNullArray[j] = arr[i];
+                j++;
+
+            }
+        }
+        return noNullArray;
     }
 }
