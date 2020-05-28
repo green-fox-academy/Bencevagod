@@ -14,21 +14,25 @@ public class Doubled {
         List<String> contents= new ArrayList<>();
 
         try {
-            Path filePath = Paths.get("assets/duplicated-chars.txt");
-            contents = Files.readAllLines(filePath);
-            List<String> charlist = new ArrayList<>();
+            Path readFilePath = Paths.get("assets/duplicated-chars.txt");
+            Path writeFilePath = Paths.get("assets/new-file.txt");
+            contents = Files.readAllLines(readFilePath);
+            List<String> newContent = new ArrayList<>();
             for (String line : contents) {
-                List<String> charlistist = new ArrayList<>(Arrays.asList(line.split("")));
-                for (int j = 0; j < charlist.size(); j++) {
-                    //if (charList.get(j+1).equals(charList.get(j))) {
-                    //charList.remove(j);
-                    //}
+                StringBuilder builder = new StringBuilder();
+                //List<String> charlistist = new ArrayList<>(Arrays.asList(line.split("")));
+                for (int i = 0; i < line.toCharArray().length; i += 2) {
+                    builder.append(line.charAt(i));
                 }
-                charlist = charlistist;
-            }
+                //for (int j = 0; j < charlistist.size() - 1; j++) {
+                    //if (charlistist.get(j).equals(charlistist.get(j+1))) {
+                      //  builder.append(j);
+                    //}
+                newContent.add(builder.toString());
+                }
 
-            //Files.write(filePath, contents);
-            System.out.println(charlist);
+            Files.write(writeFilePath, newContent);
+            //System.out.println(newContent);
         } catch (IOException e){
             System.out.println("Cant decrypt");
         }
