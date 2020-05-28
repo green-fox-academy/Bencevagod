@@ -14,7 +14,7 @@ public class GoToCenter {
         int counter = 0;
         ArrayList<Integer> xCoordinates = new ArrayList<>();
         ArrayList<Integer> yCoordinates = new ArrayList<>();
-        while (counter <= 60) {
+        while (counter <= 160) {
             Random random = new Random();
             xCoordinates.add(random.nextInt(300));
             yCoordinates.add(random.nextInt(300));
@@ -23,7 +23,7 @@ public class GoToCenter {
         for (int i = 0; i < xCoordinates.size(); i++) {
             Random random = new Random();
             graphics.setColor(new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256)));
-            graphics.drawLine(WIDTH, HEIGHT/2, xCoordinates.get(i), yCoordinates.get(i));
+            graphics.drawLine(WIDTH/2, HEIGHT/2, xCoordinates.get(i), yCoordinates.get(i));
         }
 
 
