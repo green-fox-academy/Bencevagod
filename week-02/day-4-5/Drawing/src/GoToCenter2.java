@@ -33,7 +33,7 @@ public class GoToCenter2 {
     public static void main(String[] args) {
         JFrame jFrame = new JFrame("Drawing");
         jFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        GoToCenter.ImagePanel panel = new GoToCenter.ImagePanel();
+        GoToCenter2.ImagePanel panel = new GoToCenter2.ImagePanel();
         panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
         jFrame.add(panel);
         jFrame.setLocationRelativeTo(null);
