@@ -5,21 +5,34 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public class DrawSomeBeauty {
     public static void mainDraw(Graphics graphics){
-        int side = 30;
-        int angle = 120;
+
         //ay x0 y0 az elozo vonal utolso koordinataival egyenlo
-        int x0 = WIDTH/2+20;
+        int side = 20;
+        int x0 = WIDTH/2;
         int y0 = HEIGHT/2;
-        graphics.drawLine(WIDTH/2, HEIGHT/2, WIDTH/2+20, HEIGHT/2);
-        for (int i = 0; i < 5; i++) {
-            int x1 = (int)(side*(Math.cos(angle))+x0);
-            int y1 = (int)(side*(Math.sin(angle))+y0);
-            graphics.drawLine(x0, y0, x1, y1);
-            x0 = x1;
-            y0 = y1;
+        for (int line = 0; line < 7; line++) {
+
+            for (int j = 0; j < 7; j++) {
+                drawHexa(x0, y0, side, graphics);
+            }
         }
 
 
+
+    }
+    public static void drawHexa (int x0, int y0, int side, Graphics graphics) {
+        int angle = 60;
+        int x1 = x0+side;
+        int y1 = y0;
+        graphics.drawLine(x0, y0, x1, y1);
+        for (int i = 0; i < 5; i++) {
+            x0 = x1;
+            y0 = y1;
+            x1 = (int)(side*(Math.cos(Math.toRadians(angle)))+x0);
+            y1 = (int)(side*(Math.sin(Math.toRadians(angle)))+y0);
+            graphics.drawLine(x0, y0, x1, y1);
+            angle+=60;
+        }
     }
 
     // Don't touch the code below
