@@ -17,7 +17,7 @@ public class GoToCenter2 {
         }
         for (int i = 0; i < xCoordinates.size(); i++) {
             Random random = new Random();
-            graphics.setColor(new Color(random.nextInt(256), 256, random.nextInt(256)));
+            graphics.setColor(new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256)));
             graphics.drawLine(5, 0, xCoordinates.get(i), 0);
         }
     }
