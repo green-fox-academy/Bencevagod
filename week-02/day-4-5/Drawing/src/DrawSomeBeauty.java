@@ -6,15 +6,47 @@ import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 public class DrawSomeBeauty {
     public static void mainDraw(Graphics graphics){
 
-        //ay x0 y0 az elozo vonal utolso koordinataival egyenlo
         int side = 20;
-        int x0 = WIDTH/2;
-        int y0 = HEIGHT/2;
-        for (int line = 0; line < 7; line++) {
+        int colCounter = 1;
+        int hexaCounter = 4;
 
-            for (int j = 0; j < 7; j++) {
-                drawHexa(x0, y0, side, graphics);
+        for (int i = 1; i < 8; i++) {
+            int col = i*30+50;
+            for (int j = 80; j < hexaCounter*35+80; j+=35 ) {
+                int jyu = j - 17*i;
+                if (i <= 4){
+                    drawHexa(col, jyu, side, graphics);
+
+                } else {
+                    drawHexa(col, j-17*4+17*(i-4), side,graphics);
+                }
             }
+            if (i < 4) {
+                hexaCounter++;
+            } else if (i >= 7){
+                hexaCounter = 0;
+            } else {
+                hexaCounter--;
+            }
+            /*
+            xKCounter = xJCounter+1;
+            for (int j = WIDTH/2-10; j < xJCounter*60+WIDTH/2; j+=60) {
+                x0j = j;
+                drawHexa(x0j, y0j, side, graphics);
+            }
+            for (int jNegative = WIDTH/2-10; jNegative > (WIDTH/2-10)-xJCounter*60; jNegative-=60) {
+                x0j = jNegative;
+                drawHexa(x0j, y0j, side, graphics);
+            }
+            for (int k = WIDTH/2-40; k < xKCounter*60+(WIDTH/2-40); k+=60) {
+                x0k = k;
+                drawHexa(x0k, y0k, side, graphics);
+            }
+            for (int kNegative = WIDTH/2-40; kNegative > WIDTH/2-40-xKCounter*60; kNegative-=60) {
+                x0k = kNegative;
+                drawHexa(x0k, y0k, side, graphics);
+            }
+            */
         }
 
 
