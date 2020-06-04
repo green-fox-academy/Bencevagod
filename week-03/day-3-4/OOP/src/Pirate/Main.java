@@ -1,7 +1,7 @@
 package Pirate;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Pirate piri = new Pirate("Piri");
 
         piri.drinkSomeRum();
@@ -23,6 +23,12 @@ public class Main {
         silverCharcoal.fillShip();
 
         sailingSalmon.battle(silverCharcoal);
+
+        Armada army = new Armada("Army");
+        army.fillArmada();
+        Armada arma = new Armada("Arma");
+        arma.fillArmada();
+        arma.war(army);
 
     }
 }
