@@ -3,14 +3,58 @@ package Pirate;
 import java.util.Random;
 
 public class Pirate {
-    //private String name;
+    private String name;
     private int rumCounter = 0;
     private boolean isDead = false;
     private boolean isPassedOut = false;
 
-    //public Pirate(String name) {
-    //    this.name = name;
-    //}                commented out cuz ship gives error to the not given parameter
+    public Pirate(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getRumCounter() {
+        return this.rumCounter;
+    }
+
+    public boolean getIsDead() {
+        return this.isDead;
+    }
+
+    public void getState() { //prints if the pirate is dead, passed out or alive
+        if (this.isDead) {
+            this.die();
+            System.out.println("The consumed number of rums are "+this.getRumCounter());
+        } else if (this.isPassedOut) {
+            this.passOut();
+            System.out.println("The consumed number of rums are "+this.getRumCounter());
+        } else {
+            System.out.println(this.getName()+" is still standin after "+this.getRumCounter()+" rums!");
+        }
+    }
+
+    public void setRumCounter(int rumCount) {
+        this.rumCounter += rumCount;
+    }
+
+    public void die() {
+        isDead = true;
+        System.out.println(this.getName()+" has died.");
+    }
+
+    public void passOut() {
+        isPassedOut = true;
+        System.out.println(this.getName()+" has passed out");
+    }
+
+    public void wakeUp() {
+        this.isPassedOut = false;
+        this.rumCounter = 0;
+        System.out.println(this.getName()+" is back in business!");
+    }
 
     public void drinkSomeRum() {
         if (!isDead && !isPassedOut) {
@@ -19,24 +63,6 @@ public class Pirate {
             die();
         } else {
             passOut();
-        }
-    }
-
-    public int getRumCounter() {
-        return this.rumCounter;
-    }
-
-    public boolean getIsDead() {
-        return isDead;
-    }
-
-    public void getState() { //prints if the pirate is dead, passed out or alive
-        if (isDead) {
-            die();
-        } else if (isPassedOut) {
-            passOut();
-        } else {
-            System.out.println("Still standin!");
         }
     }
 
@@ -55,18 +81,8 @@ public class Pirate {
         }
     }
 
-    public void die() {
-        isDead = true;
-        //String name = this.getName(); , this would give the variable name, so no name parameter needed
-        System.out.println(this.toString()+" has died."); //somehow needs to print the pirate who died
-    }
-
-    public void passOut() {
-        isPassedOut = true;
-        System.out.println(this.toString()+" has passed out"); //same as with the die() method
-    }
-
-    public void brawl(Pirate pirate1, Pirate pirate2) {
+    public static void brawl(Pirate pirate1, Pirate pirate2) {
+            //checks if both pirates are alive and standing
         if ((!pirate1.isDead && !pirate2.isDead) && (!pirate1.isPassedOut && !pirate2.isPassedOut)) {
             Random r = new Random();
             int chance = r.nextInt(3); // gives the 1/3 chance
@@ -79,13 +95,13 @@ public class Pirate {
                 pirate2.passOut();
             }
         } else if (pirate1.isDead){
-            die();
+            pirate1.die();
         } else if (pirate2.isDead){
-            die();
+            pirate2.die();
         } else if (pirate1.isPassedOut) {
-            passOut();
+            pirate1.passOut();
         } else {
-            passOut();
+            pirate2.passOut();
         }
     }
 }
