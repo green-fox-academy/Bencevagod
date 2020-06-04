@@ -37,12 +37,15 @@ public class Ship {
             crewNumber++;
         }
         this.captain = new Pirate("Captain"); //adds a captain
+        System.out.println("The "+this.getName()+" has a total crew of "+this.getCrew().size()+" pirates");
+        System.out.println();
     }
 
     public void shipStatus() {
-        System.out.print("The captain is ");
+        System.out.print("The ");
         this.captain.getState();
         System.out.println("The "+this.getName()+" has "+this.getCrew().size()+" members of the crew left!");
+        System.out.println();
     }
 
     public boolean isWinnerShip(Ship ship1, Ship ship2) {
@@ -51,22 +54,29 @@ public class Ship {
 
     public void battle(Ship ship2) {
         if(isWinnerShip(this, ship2)) {
+            System.out.println(this.getName()+" has won the battle!");
+            System.out.println(ship2.getName()+" is sinking!");
+            System.out.println();
             Random r = new Random();
             int crewToRemove = r.nextInt(ship2.getCrew().size()+1);
-            for (int i = ship2.getCrew().size(); i >= ship2.getCrew().size()-crewToRemove; i--) {
+            for (int i = 0; i < ship2.getCrew().size()-crewToRemove; i++) {
                 ship2.getCrew().remove(i);
             }
+            ship2.shipStatus();
             Random random = new Random();
             for (int i = 0; i < this.getCrew().size(); i++) {
                 this.getCrew().get(i).setRumCounter(random.nextInt(6));
             }
             this.getCaptain().setRumCounter(random.nextInt(6));
         } else {
+            System.out.println(this.getName()+" has lost the battle, "+ship2.getName()+" has won!");
+            System.out.println();
             Random r = new Random();
             int crewToRemove = r.nextInt(this.getCrew().size()+1);
-            for (int i = this.getCrew().size(); i >= this.getCrew().size()-crewToRemove; i--) {
+            for (int i = 0; i < this.getCrew().size()-crewToRemove; i++) {
                 this.getCrew().remove(i);
             }
+            this.shipStatus();
             Random random = new Random();
             for (int i = 0; i < ship2.getCrew().size(); i++) {
                 ship2.getCrew().get(i).setRumCounter(random.nextInt(6));

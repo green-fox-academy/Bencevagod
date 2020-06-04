@@ -19,14 +19,10 @@ public class Main {
 
         Ship sailingSalmon = new Ship("Sailing Salmon");
         sailingSalmon.fillShip();
-        sailingSalmon.shipStatus();
-        piri.wakeUp();
-        Pirate.brawl(piri, pirike);
-        piri.howsItGoingMate();
-        pirike.howsItGoingMate();
+        Ship silverCharcoal = new Ship("Silver Charcoal");
+        silverCharcoal.fillShip();
 
-        sailingSalmon.getCaptain().drinkSomeRum();
-        sailingSalmon.getCaptain().howsItGoingMate();
+        sailingSalmon.battle(silverCharcoal);
 
     }
 }
