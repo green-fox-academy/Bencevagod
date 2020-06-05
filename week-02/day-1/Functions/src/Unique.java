@@ -1,27 +1,23 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Unique {
     public static void main(String[] args) {
         int[] nums = {1, 11, 34, 11, 52, 61, 1, 34};
-        int[] uniqueNums = unique(nums);
-        int[] erasedNulls = eraseNulls(uniqueNums);
-
-        for (int i = 0; i <erasedNulls.length; i++){
-
-            System.out.println(uniqueNums[i]);
+        System.out.println(unique(nums));
         }
-    }
-    public static int[] unique (int[] a){
-        int[] uniqueList = new int[a.length];
-        for (int i = 0; i < a.length; i++){
-            if (!isTrue(uniqueList, a[i])){
-                uniqueList[i] = a[i];
+
+    public static List<Integer> unique (int[] a){
+        List<Integer> uniqueList = new ArrayList<>();
+        for (int value : a) {
+            if (!isInList(uniqueList, value)) {
+                uniqueList.add(value);
             }
         }
         return uniqueList;
     }
-    public static boolean isTrue (int[] arr, int value){
-        boolean jelen = true;
+
+    public static boolean isInList(List<Integer> arr, int value){
         for (int item : arr) {
             if (item == value) {
                 return true;
@@ -29,23 +25,5 @@ public class Unique {
         }
         return false;
     }
-    public static int[] eraseNulls (int[] arr){
-        int nulls = 0;
-        for (int i = 0; i < arr.length; i++){
-            if (arr[i] == 0){
-                nulls++;
-            }
-        }
-        int[] noNullArray = new int[arr.length - nulls];
 
-        for (int i = 0; i < arr.length; i++){
-            if (arr[i] != 0){
-                int j = 0;
-                noNullArray[j] = arr[i];
-                j++;
-
-            }
-        }
-        return noNullArray;
-    }
 }
