@@ -18,12 +18,7 @@ public class Unique {
     }
 
     public static boolean isInList(List<Integer> arr, int value){
-        for (int item : arr) {
-            if (item == value) {
-                return true;
-            }
-        }
-        return false;
+        return arr.contains(value);
     }
 
 }
