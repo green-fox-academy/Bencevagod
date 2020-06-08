@@ -18,8 +18,9 @@ public class Person {
     }
 
     public String introduce() {
-        System.out.println("Hi, I'm "+this.name+", a "+this.age+" year old "+this.gender+this.specificIntroduce()+".");
-        return "Hi, I'm "+this.name+", a "+this.age+" year old "+this.gender+specificIntroduce()+".";
+        String introduce = "Hi, I'm "+this.name+", a "+this.age+" year old "+this.gender+this.specificIntroduce()+".";
+        System.out.println(introduce);
+        return introduce;
     }
 
     public String specificIntroduce() {

@@ -1,8 +1,8 @@
 package GreenFoxOrg;
 
 public class Sponsor extends Person{
-    protected String company;
-    protected int hiredStudents;
+    private String company;
+    private int hiredStudents;
 
     public Sponsor() {
         super();
