@@ -1,0 +1,23 @@
+table {
+  width: 500px;
+  text-align: left;
+  border-radius: 5px;
+  border-spacing: 0;
+  border-radius: 5px;
+}
+
+td, th {
+padding: 20px;
+border: grey solid thin;
+margin: 15px;
+}
+
+tr:nth-child(odd){
+  background-color: lightgray;
+}
+
+th {
+  background-color: black;
+  color: white;
+}
+
