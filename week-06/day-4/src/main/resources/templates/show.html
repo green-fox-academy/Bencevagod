@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Account Information</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <table>
+        <tr>
+            <th></th>
+            <th>Account owner</th>
+            <th>Balance</th>
+            <th>Side</th>
+        </tr>
+        <tr th:each="bankAccount : ${bankAccounts}">
+            <td th:text="${bankAccountStat.count}"></td>
+            <td th:text="${bankAccount.name}" th:attr="class=${bankAccount.isKingClass()}"></td>
+            <td th:utext="${bankAccount.balance} + '.00 Zebra'"></td>
+            <td th:text="${bankAccount.getBadGuy()}" th:attr="class=${bankAccount.isBadGuyClass()}"></td>
+        </tr>
+    </table>
+    <br>
+    <form action="/raise" method="post">
+        <button type="submit">Raise Balance!</button>
+    </form>
+    <br>
+    <form action="/save-bankAccount" method="post">
+        <label for="name">Name</label>
+        <input type="text" name="name" placeholder="E.g. Jack Sparrow" required>
+        <br>
+        <label for="balance">Balance</label>
+        <input type="number" name="balance" placeholder="E.g. 1200" required>
+        <br>
+        <label for="animaltype">Animal type</label>
+        <input type="text" name="animalType" placeholder="E.g. Zebra (or striped horse or whatever)" required>
+        <br>
+        <label>
+            <label>
+                <input type="radio" name="isBadGuy" value="false" required>
+                Good
+            </label>
+            <label>
+                <input type="radio" name="isBadGuy" value="true">
+                Bad
+            </label>
+        </label>
+        <br>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

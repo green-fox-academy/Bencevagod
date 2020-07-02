@@ -1,0 +1,32 @@
+table {
+    border-collapse: collapse;
+    background-color: lightgray;
+}
+
+td, th {
+    border: thin solid;
+    padding: 10px;
+}
+
+th {
+    background-color: black;
+    color: white;
+    text-align: left;
+}
+
+tr:nth-child(even) {
+    background-color: wheat;
+}
+
+.king {
+    color: crimson;
+    background-color: indigo;
+}
+
+.bad {
+    background-color: lightcoral;
+}
+
+.good {
+    background-color: lightskyblue;
+}
