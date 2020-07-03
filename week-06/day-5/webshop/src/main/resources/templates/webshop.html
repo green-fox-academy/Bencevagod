@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ultimate Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <h1 id="hader"><a id="header" href="/">Ultimate Shop</a></h1>
+    <form method="post" action="/search">
+        <input type="search" placeholder="search here" name="searchbar">
+        <button type="submit">Search</button>
+    </form>
+    <div id="headerButtonContainer">
+        <a href="/only-available" class="headerButton">ONLY AVAILABLE</a>
+        <a href="/cheapest-first" class="headerButton">CHEAPEST FIRST</a>
+        <a href="/contains-nike" class="headerButton">CONTAINS NIKE</a>
+        <a href="/average-stock" class="headerButton">AVERAGE STOCK</a>
+        <a href="/most-expensive" class="headerButton">MOST EXPENSIVE AVAILABLE</a>
+    </div>
+</header>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Quantity in stock</th>
+    </tr>
+    <tr th:each="item : ${items}">
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.description}"></td>
+        <td th:text="'$ ' + ${item.price}"></td>
+        <td th:text="${item.quantityInStock}" id="stock"></td>
+    </tr>
+</table>
+</body>
+</html>

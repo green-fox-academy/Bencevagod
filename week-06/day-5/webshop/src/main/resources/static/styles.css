@@ -1,0 +1,111 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    background-color: black;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin-left: 0;
+    padding-bottom: 15px;
+    padding-right: 15px;
+}
+
+#header {
+    /*width: 100%;*/
+    text-decoration: none;
+    color: lightskyblue;
+    padding-left: 15px;
+    transition: color ease-in-out .3s;
+}
+
+#header:hover {
+    color: royalblue;
+}
+
+#hader {
+    border-bottom: thick indigo solid;
+}
+
+.headerButton {
+    text-decoration: none;
+    padding: 5px;
+    background-color: crimson;
+    border-radius: 5px;
+    color: white;
+    transition: background-color ease-in-out .3s;
+}
+
+.headerButton:hover {
+    background-color: indigo;
+}
+
+#headerButtonContainer {
+    display: flex;
+    justify-content: space-around;
+    padding-left: 10em;
+    padding-right: 10em;
+}
+
+table {
+    margin-top: 150px;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: white solid thin;
+    padding: 15px;
+}
+
+th {
+    background-color: lightskyblue;
+}
+
+#stock {
+    text-align: center;
+}
+
+#avg {
+    margin-top: 150px;
+}
+
+form {
+    display: inline;
+    float: right;
+    padding-right: 20px;
+}
+
+input {
+
+    background-color: grey;
+    color: white;
+    border: white thin solid;
+    width: auto;
+    height: 2em;
+    border-radius: 3px;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 2pt 2pt crimson;
+}
+
+input::placeholder {
+    color: white;
+}
+
+button {
+    padding: 3px;
+    background-color: crimson;
+    color: white;
+    border-radius: 5px;
+    border: crimson 2px solid;
+    height: 2em;
+    transition: border-color ease-in-out .2s;
+}
+
+button:hover {
+    border-color: black;
+}
