@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${fox.name}"></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<ul>
+    <li><a href="/">Information</a> </li>
+    <li><a href="/nutritionstore">nutrition store</a> </li>
+</ul>
+<img src="greenfox.png">
+<p th:text="'This is ' + ${fox.name} + '. Currently living on ' + ${fox.food} + ' and ' + ${fox.drink} + '. He knows ' + ${fox.tricks.size()} + ' tricks.'"></p>
+<h1>Known tricks</h1>
+<ul th:each="trick : ${fox.tricks}">
+    <li th:text="${trick.trickName}"></li>
+</ul>
+<p th:attr="class=${fox.knowNoTricksClass()}">You know no tricks yet. Go and learn some</p>
+</body>
+</html>
