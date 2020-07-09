@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -13,19 +14,18 @@ import java.util.stream.Collectors;
 @Controller
 public class WebshopController {
 
-    List<ShopItem> items = Arrays.asList(
-            new ShopItem("Nike AirForce One", "Super duper COOL Nike shoes for everyone, in every size!", 119.99f, 52),
-            new ShopItem("GTX 2070 Super OC 8GB Gaming GPU", "High end gaming GPU for 4K gaming!", 749.99f, 7),
-            new ShopItem("AMD Ryzen 14800X 128 Core CPU", "128/256 Core/threads CPU with 12.5 GHZ ALL-CORE base clock speed, AM4 socket, 140W TDP", 449.99f, 38),
-            new ShopItem("Vivian Vance premium bikini thong", "Black is the new Black, wanna be the best? Have the BEST!", 799.99f, 2),
-            new ShopItem("18K GOLD stuffed Sateen pillow", "premium sateen pillow with gold lining, and gold stuffing, can be ordered in rose gold version!", 1099.99f, 5),
-            new ShopItem("Coca Cola Vanilla", "Vanilla flavoured Coca Cola, ice cold refreshing!", 3.99f, 0),
-            new ShopItem("Lamborghini Centenario", "C'mon this one doesn't need a description", 399989.99f, 0)
-    );
+    int infiniteScrollCounter = 0;
+    @GetMapping("/fetch")
+    @ResponseBody
+    public List<ShopItem> infiniteScroll() {
+        infiniteScrollCounter += 20;
+        return items.subList(infiniteScrollCounter, infiniteScrollCounter+20);
+    }
 
     @GetMapping("/")
     public String show(Model model) {
-        model.addAttribute("items", items);
+        infiniteScrollCounter = 0;
+        model.addAttribute("items", items.subList(0, 20));
         return "webshop";
     }
 
@@ -99,4 +99,80 @@ public class WebshopController {
                         .collect(Collectors.toList()));
         return "webshop";
     }
+
+    List<ShopItem> items = Arrays.asList(
+            new ShopItem("Nike AirForce One", "Super duper COOL Nike shoes for everyone, in every size!", 119.99f, 52),
+            new ShopItem("GTX 2070 Super OC 8GB Gaming GPU", "High end gaming GPU for 4K gaming!", 749.99f, 7),
+            new ShopItem("AMD Ryzen 14800X 128 Core CPU", "128/256 Core/threads CPU with 12.5 GHZ ALL-CORE base clock speed, AM4 socket, 140W TDP", 449.99f, 38),
+            new ShopItem("Vivian Vance premium bikini thong", "Black is the new Black, wanna be the best? Have the BEST!", 799.99f, 2),
+            new ShopItem("18K GOLD stuffed Sateen pillow", "premium sateen pillow with gold lining, and gold stuffing, can be ordered in rose gold version!", 1099.99f, 5),
+            new ShopItem("Coca Cola Vanilla", "Vanilla flavoured Coca Cola, ice cold refreshing!", 3.99f, 0),
+            new ShopItem("Lamborghini Centenario", "C'mon this one doesn't need a description", 399989.99f, 0),
+            new ShopItem("Lorem ipsum", "Lorem ipsum dolor sit amet for sale!", 500f, 2),
+            new ShopItem("Lored mispum", "Lores mispum dolor sit amet for sale!", 30f, 56),
+            new ShopItem("Forem dipsun", "Forem dispun dolor sit amet for sale!", 9999f, 0),
+            new ShopItem("Nike AirForce One", "Super duper COOL Nike shoes for everyone, in every size!", 119.99f, 52),
+            new ShopItem("GTX 2070 Super OC 8GB Gaming GPU", "High end gaming GPU for 4K gaming!", 749.99f, 7),
+            new ShopItem("AMD Ryzen 14800X 128 Core CPU", "128/256 Core/threads CPU with 12.5 GHZ ALL-CORE base clock speed, AM4 socket, 140W TDP", 449.99f, 38),
+            new ShopItem("Vivian Vance premium bikini thong", "Black is the new Black, wanna be the best? Have the BEST!", 799.99f, 2),
+            new ShopItem("18K GOLD stuffed Sateen pillow", "premium sateen pillow with gold lining, and gold stuffing, can be ordered in rose gold version!", 1099.99f, 5),
+            new ShopItem("Coca Cola Vanilla", "Vanilla flavoured Coca Cola, ice cold refreshing!", 3.99f, 0),
+            new ShopItem("Lamborghini Centenario", "C'mon this one doesn't need a description", 399989.99f, 0),
+            new ShopItem("Lorem ipsum", "Lorem ipsum dolor sit amet for sale!", 500f, 2),
+            new ShopItem("Lored mispum", "Lores mispum dolor sit amet for sale!", 30f, 56),
+            new ShopItem("Forem dipsun", "Forem dispun dolor sit amet for sale!", 9999f, 0),
+            new ShopItem("Nike AirForce One", "Super duper COOL Nike shoes for everyone, in every size!", 119.99f, 52),
+            new ShopItem("GTX 2070 Super OC 8GB Gaming GPU", "High end gaming GPU for 4K gaming!", 749.99f, 7),
+            new ShopItem("AMD Ryzen 14800X 128 Core CPU", "128/256 Core/threads CPU with 12.5 GHZ ALL-CORE base clock speed, AM4 socket, 140W TDP", 449.99f, 38),
+            new ShopItem("Vivian Vance premium bikini thong", "Black is the new Black, wanna be the best? Have the BEST!", 799.99f, 2),
+            new ShopItem("18K GOLD stuffed Sateen pillow", "premium sateen pillow with gold lining, and gold stuffing, can be ordered in rose gold version!", 1099.99f, 5),
+            new ShopItem("Coca Cola Vanilla", "Vanilla flavoured Coca Cola, ice cold refreshing!", 3.99f, 0),
+            new ShopItem("Lamborghini Centenario", "C'mon this one doesn't need a description", 399989.99f, 0),
+            new ShopItem("Lorem ipsum", "Lorem ipsum dolor sit amet for sale!", 500f, 2),
+            new ShopItem("Lored mispum", "Lores mispum dolor sit amet for sale!", 30f, 56),
+            new ShopItem("Forem dipsun", "Forem dispun dolor sit amet for sale!", 9999f, 0),
+            new ShopItem("Nike AirForce One", "Super duper COOL Nike shoes for everyone, in every size!", 119.99f, 52),
+            new ShopItem("GTX 2070 Super OC 8GB Gaming GPU", "High end gaming GPU for 4K gaming!", 749.99f, 7),
+            new ShopItem("AMD Ryzen 14800X 128 Core CPU", "128/256 Core/threads CPU with 12.5 GHZ ALL-CORE base clock speed, AM4 socket, 140W TDP", 449.99f, 38),
+            new ShopItem("Vivian Vance premium bikini thong", "Black is the new Black, wanna be the best? Have the BEST!", 799.99f, 2),
+            new ShopItem("18K GOLD stuffed Sateen pillow", "premium sateen pillow with gold lining, and gold stuffing, can be ordered in rose gold version!", 1099.99f, 5),
+            new ShopItem("Coca Cola Vanilla", "Vanilla flavoured Coca Cola, ice cold refreshing!", 3.99f, 0),
+            new ShopItem("Lamborghini Centenario", "C'mon this one doesn't need a description", 399989.99f, 0),
+            new ShopItem("Lorem ipsum", "Lorem ipsum dolor sit amet for sale!", 500f, 2),
+            new ShopItem("Lored mispum", "Lores mispum dolor sit amet for sale!", 30f, 56),
+            new ShopItem("Forem dipsun", "Forem dispun dolor sit amet for sale!", 9999f, 0),
+            new ShopItem("Nike AirForce One", "Super duper COOL Nike shoes for everyone, in every size!", 119.99f, 52),
+            new ShopItem("GTX 2070 Super OC 8GB Gaming GPU", "High end gaming GPU for 4K gaming!", 749.99f, 7),
+            new ShopItem("AMD Ryzen 14800X 128 Core CPU", "128/256 Core/threads CPU with 12.5 GHZ ALL-CORE base clock speed, AM4 socket, 140W TDP", 449.99f, 38),
+            new ShopItem("Vivian Vance premium bikini thong", "Black is the new Black, wanna be the best? Have the BEST!", 799.99f, 2),
+            new ShopItem("18K GOLD stuffed Sateen pillow", "premium sateen pillow with gold lining, and gold stuffing, can be ordered in rose gold version!", 1099.99f, 5),
+            new ShopItem("Coca Cola Vanilla", "Vanilla flavoured Coca Cola, ice cold refreshing!", 3.99f, 0),
+            new ShopItem("Lamborghini Centenario", "C'mon this one doesn't need a description", 399989.99f, 0),
+            new ShopItem("Lorem ipsum", "Lorem ipsum dolor sit amet for sale!", 500f, 2),
+            new ShopItem("Lored mispum", "Lores mispum dolor sit amet for sale!", 30f, 56),
+            new ShopItem("Forem dipsun", "Forem dispun dolor sit amet for sale!", 9999f, 0),
+            new ShopItem("Nike AirForce One", "Super duper COOL Nike shoes for everyone, in every size!", 119.99f, 52),
+            new ShopItem("GTX 2070 Super OC 8GB Gaming GPU", "High end gaming GPU for 4K gaming!", 749.99f, 7),
+            new ShopItem("AMD Ryzen 14800X 128 Core CPU", "128/256 Core/threads CPU with 12.5 GHZ ALL-CORE base clock speed, AM4 socket, 140W TDP", 449.99f, 38),
+            new ShopItem("Vivian Vance premium bikini thong", "Black is the new Black, wanna be the best? Have the BEST!", 799.99f, 2),
+            new ShopItem("18K GOLD stuffed Sateen pillow", "premium sateen pillow with gold lining, and gold stuffing, can be ordered in rose gold version!", 1099.99f, 5),
+            new ShopItem("Coca Cola Vanilla", "Vanilla flavoured Coca Cola, ice cold refreshing!", 3.99f, 0),
+            new ShopItem("Lamborghini Centenario", "C'mon this one doesn't need a description", 399989.99f, 0),
+            new ShopItem("Lorem ipsum", "Lorem ipsum dolor sit amet for sale!", 500f, 2),
+            new ShopItem("Lored mispum", "Lores mispum dolor sit amet for sale!", 30f, 56),
+            new ShopItem("Forem dipsun", "Forem dispun dolor sit amet for sale!", 9999f, 0),
+            new ShopItem("Nike AirForce One", "Super duper COOL Nike shoes for everyone, in every size!", 119.99f, 52),
+            new ShopItem("GTX 2070 Super OC 8GB Gaming GPU", "High end gaming GPU for 4K gaming!", 749.99f, 7),
+            new ShopItem("AMD Ryzen 14800X 128 Core CPU", "128/256 Core/threads CPU with 12.5 GHZ ALL-CORE base clock speed, AM4 socket, 140W TDP", 449.99f, 38),
+            new ShopItem("Vivian Vance premium bikini thong", "Black is the new Black, wanna be the best? Have the BEST!", 799.99f, 2),
+            new ShopItem("18K GOLD stuffed Sateen pillow", "premium sateen pillow with gold lining, and gold stuffing, can be ordered in rose gold version!", 1099.99f, 5),
+            new ShopItem("Coca Cola Vanilla", "Vanilla flavoured Coca Cola, ice cold refreshing!", 3.99f, 0),
+            new ShopItem("Lamborghini Centenario", "C'mon this one doesn't need a description", 399989.99f, 0),
+            new ShopItem("Lorem ipsum", "Lorem ipsum dolor sit amet for sale!", 500f, 2),
+            new ShopItem("Lored mispum", "Lores mispum dolor sit amet for sale!", 30f, 56),
+            new ShopItem("Forem dipsun", "Forem dispun dolor sit amet for sale!", 9999f, 0)
+    );
 }
+
+//fetch js
+//response body method ami vissszaadja a nyers json filet, a show method mellet

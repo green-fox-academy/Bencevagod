@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <title>Ultimate Shop</title>
     <link rel="stylesheet" href="styles.css">
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Merriweather+Sans&family=Open+Sans&display=swap" rel="stylesheet">
 <body>
 <header>
-    <h1 id="hader"><a id="header" href="/">Ultimate Shop</a></h1>
+    <div id="heading">
+    <h1 id="header"><a id="headerlink" href="/">Ultimate Shop</a></h1>
+    <h1 id="more"><a id="morelink" href="">More >></a> </h1>
+    </div>
     <form method="post" action="/search">
-        <input type="search" placeholder="search here" name="searchbar">
-        <button type="submit">Search</button>
+        <input type="search" placeholder="Search here" name="searchbar">
+        <button type="submit"><img src="search2.png" id="searchicon"></button>
     </form>
     <div id="headerButtonContainer">
         <a href="/only-available" class="headerButton">ONLY AVAILABLE</a>
@@ -20,7 +24,7 @@
         <a href="/most-expensive" class="headerButton">MOST EXPENSIVE AVAILABLE</a>
     </div>
 </header>
-<table>
+<table id="itemsTable">
     <tr>
         <th>Name</th>
         <th>Description</th>
@@ -30,9 +34,29 @@
     <tr th:each="item : ${items}">
         <td th:text="${item.name}"></td>
         <td th:text="${item.description}"></td>
-        <td th:text="'$ ' + ${item.price}"></td>
+        <td th:text="'$ ' + ${item.price}" id="price"></td>
         <td th:text="${item.quantityInStock}" id="stock"></td>
     </tr>
 </table>
+<script>
+    window.onscroll = function (ev) {
+        if ((window.innerHeight + document.documentElement.scrollTop) >= document.body.scrollHeight) {
+            fetch('http://localhost:8080/fetch')
+                .then(response => response.json())
+                .then(json => {
+                    let li;
+                    json.forEach(item => {
+                        li += `<tr>
+                    <td>${item.name}</td>
+                    <td>${item.description}</td>
+                    <td>${item.price}</td>
+                    <td>${item.stock}</td>
+                    </tr>`;
+                    });
+                    document.getElementById("itemsTable").innerHTML += li;
+                }).catch((error) => {})
+        }
+    }
+</script>
 </body>
 </html>
