@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tricks</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<form action="/addtrick" method="post" th:attr="class=${fox.learnableTricks.size()==0?'hidden':''}">
+    <label>Tricks</label>
+    <select name="tricks">
+        <option th:each="trick : ${tricks}" th:value="${trick.getTrick()}" th:text="${trick.getTrick()}"></option>
+    </select>
+    <button type="submit">Edit</button>
+</form>
+<form action="/" method="get">
+    <p th:attr="class=${fox.learnableTricks.size()==0?'':'hidden'}">Your pet has learned every single trick!</p>
+    <button type="submit">Go back</button>
+</form>
+</body>
+</html>

@@ -1,9 +1,12 @@
 package com.greenfox.programmer_fox_club.Service;
 
+import com.greenfox.programmer_fox_club.Model.Drinks;
+import com.greenfox.programmer_fox_club.Model.Foods;
 import com.greenfox.programmer_fox_club.Model.Fox;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -26,7 +29,6 @@ public class FoxService {
 
     public void addNewFox(String foxName) {
         Fox fox = new Fox(foxName);
-        //fox.addTrick("pooping");
         foxList.add(fox);
     }
 
@@ -40,4 +42,6 @@ public class FoxService {
                 .findFirst()
                 .orElse(null);
     }
+
+
 }

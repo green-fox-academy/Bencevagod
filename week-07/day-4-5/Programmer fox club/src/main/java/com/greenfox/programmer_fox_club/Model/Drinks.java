@@ -1,9 +1,9 @@
 package com.greenfox.programmer_fox_club.Model;
 
 public enum Drinks {
-    WATER("water"),
-    CHAMPAGNE("champagne"),
-    BLOOD("blood");
+    WATER("Water"),
+    CHAMPAGNE("Champagne"),
+    BLOOD("Blood");
 
     private String drink;
 

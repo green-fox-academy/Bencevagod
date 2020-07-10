@@ -1,9 +1,10 @@
 package com.greenfox.programmer_fox_club.Model;
 
 public enum Foods {
-    SALAD("salad"),
-    CHICKPEAS("chickpeas"),
-    MUSHROOMS("mushrooms");
+    SALAD("Salad"),
+    CHICKPEAS("Chickpeas"),
+    MUSHROOMS("Mushrooms"),
+    ICECREAM("Ice cream");
 
     private String food;
 
