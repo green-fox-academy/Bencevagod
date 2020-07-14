@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo</title>
+</head>
+<body>
+<form method="get" action="/todo/addtodo">
+    <button type="submit">Add new todos here</button>
+</form>
+<h1>Todos for today</h1>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Todo</th>
+        <th>Urgent</th>
+        <th>Done</th>
+    </tr>
+    <tr th:each="todo : ${todos}">
+        <td th:text="${todo.id}"></td>
+        <td th:text="${todo.name}"></td>
+        <td th:text="${todo.urgent}"></td>
+        <td th:text="${todo.done}"></td>
+    </tr>
+</table>
+</body>
+</html>
