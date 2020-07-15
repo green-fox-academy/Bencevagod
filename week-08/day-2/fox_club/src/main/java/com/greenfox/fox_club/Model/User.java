@@ -8,9 +8,6 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@NoArgsConstructor
-@Getter
-@Setter
 public class User {
 
     @Id
@@ -21,6 +18,8 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<Fox> foxes;
+
+    public User() {}
 
     public User(String userName, String password) {
         this.userName = userName;

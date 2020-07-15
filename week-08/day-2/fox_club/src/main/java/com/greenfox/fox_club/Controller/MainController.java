@@ -89,8 +89,8 @@ public class MainController {
     @PostMapping("/newaccount")
     public String addNewAccount(@RequestParam (value = "username") String username, @RequestParam (value = "password") String password, @RequestParam (value = "repassword") String repassword) {
         if(foxService.passwordsMatch(password, repassword)) {
+            foxService.saveAccount(username, password);
             return "redirect:/login";
-            foxRepo.save(new User(username, password));
         }
         return "register";
     }

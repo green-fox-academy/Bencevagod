@@ -1,8 +1,6 @@
 package com.greenfox.fox_club.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,12 +8,16 @@ import java.util.List;
 @Entity
 public class Fox {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private Foods food;
     private Drinks drink;
-    private Tricks trickName;
+
+    @OneToMany(mappedBy = "learnedTricks")
     private List<Trick> learnedTricks;
-    private List<Tricks> learnableTricks;
+
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
@@ -26,8 +28,9 @@ public class Fox {
         this.learnedTricks = new ArrayList<Trick>();
         this.food = Foods.MUSHROOMS;
         this.drink = Drinks.CHAMPAGNE;
-        this.learnableTricks = new ArrayList<>(Arrays.asList(Tricks.values()));
     }
+
+    public Fox(){}
 
     public String getName() {
         return name;
@@ -65,13 +68,10 @@ public class Fox {
         return this.getTricks().size() == 0 ? "" : "hidden";
     }
 
-    public List<Tricks> getLearnableTricks() {
-        return learnableTricks;
-    }
+
 
     public void learnTrick(String trick) {
         this.learnedTricks.add(new Trick(trick));
-        learnableTricks.remove(Tricks.valueOf(makeEnumCompatible(trick)));
     }
 
     public List<Foods> getSortedFoodList() {

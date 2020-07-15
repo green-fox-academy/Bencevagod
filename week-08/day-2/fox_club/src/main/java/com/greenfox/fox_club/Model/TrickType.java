@@ -1,6 +1,6 @@
 package com.greenfox.fox_club.Model;
 
-public enum Tricks {
+public enum TrickType {
 
     HOWL("Howl"),
     PLAYDEAD("Play dead"),
@@ -8,7 +8,7 @@ public enum Tricks {
 
     private String trick;
 
-    Tricks(String trick) {
+    TrickType(String trick) {
         this.trick = trick;
     }
 
