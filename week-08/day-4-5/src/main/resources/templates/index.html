@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trending posts</title>
+</head>
+<body>
+<a href="/newpost">Submit new post</a>
+<h1>Trending posts</h1>
+<table>
+    <tr th:each="post : ${posts}">
+        <td th:text="${post.votes}"></td>
+        <td><a th:href="'/increment/?id='+${post.id}">+</a></td>
+        <td><a th:href="'/decrement/?id='+${post.id}">-</a></td>
+        <td><a th:text="${post.title}" th:href="${post.url}"></a></td>
+        <td th:text="${post.time}"></td>
+    </tr>
+</table>
+<a th:href="'/page/'+${service.decrementPageCounter()}">previous page</a>
+<a th:href="'/page/'+${service.incrementPageCounter()}">next page</a>
+</body>
+</html>
