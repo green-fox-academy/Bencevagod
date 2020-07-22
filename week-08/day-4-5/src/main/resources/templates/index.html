@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Trending posts</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <a href="/newpost">Submit new post</a>
@@ -16,7 +17,6 @@
         <td th:text="${post.time}"></td>
     </tr>
 </table>
-<a th:href="'/page/'+${service.decrementPageCounter()}">previous page</a>
-<a th:href="'/page/'+${service.incrementPageCounter()}">next page</a>
+<a th:href="'/page/'+${service.incrementPageCounter()}" th:attr="class=${service.hiddenButtonClass()}">next page</a>
 </body>
 </html>

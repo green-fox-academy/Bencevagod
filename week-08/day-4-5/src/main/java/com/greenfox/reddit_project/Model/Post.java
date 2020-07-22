@@ -22,9 +22,9 @@ public class Post {
     private Integer votes;
     private java.time.LocalDateTime time;
 
-//    @ManyToOne
-//    @JoinColumn(name = "user_id", referencedColumnName = "id")
-//    private RedditUser redditUser;
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private RedditUser redditUser;
 
     public Post(String title, String url) {
         this.title = title;

@@ -22,7 +22,7 @@ public class MainController {
 
     @GetMapping("/")
     public String mainPage(Model model, @RequestParam (required = false) Integer page) {
-        model.addAttribute("posts", postService.getPosts());
+        model.addAttribute("posts", postService.get10Posts());
         model.addAttribute("service", postService);
         return "index";
     }

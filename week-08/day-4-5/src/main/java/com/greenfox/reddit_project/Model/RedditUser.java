@@ -20,9 +20,9 @@ public class RedditUser {
 
     private String name;
 
-//    @ManyToOne
-//    private Post post;
-//
+    @ManyToOne
+    private Post post;
+
 //    @ManyToOne
 //    private Comment comment;
 }

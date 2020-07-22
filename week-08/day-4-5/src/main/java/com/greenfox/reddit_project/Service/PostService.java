@@ -25,11 +25,18 @@ public class PostService {
     public List<Post> getPosts() {
         return postRepository.findAll().stream()
                 .sorted(Comparator.comparingInt(Post::getVotes).reversed())
+                .collect(Collectors.toList());
+    }
+
+    public List<Post> get10Posts() {
+        return postRepository.findAll().stream()
+                .sorted(Comparator.comparingInt(Post::getVotes).reversed())
                 .limit(10)
                 .collect(Collectors.toList());
     }
 
     public List<Post> getPagedPosts(Integer page) {
+        this.pageCounter = page;
         int numbersOfPosts = page * 10;
         return postRepository.findAll().stream()
                 .sorted(Comparator.comparingInt(Post::getVotes).reversed())
@@ -38,7 +45,19 @@ public class PostService {
                 .collect(Collectors.toList());
     }
 
-    
+    public String hiddenButtonClass() {
+        if (this.pageCounter*10 >= this.getPosts().size()) {
+            return "hidden";
+        }
+        return "";
+    }
+
+    public String hiddenPreviousButtonClass() {
+        if (this.pageCounter == 1) {
+            return "hidden";
+        }
+        return "";
+    }
 
     public void savePost(Post post) {
         postRepository.save(post);
