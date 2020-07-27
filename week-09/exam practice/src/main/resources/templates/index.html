@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Mebay</title>
+</head>
+<body>
+<header>
+    <h1 id="logo">Mebay</h1>
+    <div>
+        <button><a href="/sort-by-price">Sort by price</a></button>
+        <button><a href="/sort-by-popularity">sort by popularity</a></button>
+        <button><a href="/category">categories</a></button>
+        <form action="/search/" method="post">
+            <input name="search">
+            <button type="submit">search</button>
+        </form>
+    </div>
+</header>
+
+</body>
+</html>

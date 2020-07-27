@@ -12,8 +12,8 @@ public interface AliasRepository extends CrudRepository<Alias, Long> {
 
     List<Alias> findAllByAlias(String alias);
 
-    @Query(nativeQuery = true, value = "SELECT * FROM ALIAS ORDER BY id DESC LIMIT 1")
-    Alias findLast();
+//    @Query(nativeQuery = true, value = "SELECT * FROM ALIAS ORDER BY id DESC LIMIT 1")
+    List<Alias> findAll();
 
     Alias findAliasByAlias(String alias);
 }

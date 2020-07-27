@@ -40,7 +40,7 @@ public class MainService {
     }
 
     public Alias findLastAlias(){
-        return repository.findLast();
+        return repository.findAll().get(repository.findAll().size()-1);
     }
 
 //    public Alias findByaAlias
