@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${hirdetes.termek}+'| Mebay'"></title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td th:text="${hirdetes.termek}"></td>
+            <td th:text="${hirdetes.description}"></td>
+            <td th:text="${hirdetes.price}"></td>
+            <td th:text="${hirdetes.numberOfSells}"></td>
+            <td th:text="${hirdetes.user}"></td>
+            <td th:text="${hirdetes.category}"></td>
+        </tr>
+    </table>
+
+    <form method="post" th:action="'/ertekeles/'+${hirdetes.id}">
+        <p>Write a review!</p>
+        <br>
+        <label>Username: </label>
+        <input type="text" name="name">
+        <br>
+        <label>How many stars would you give?</label>
+        <select name="stars">
+            <option th:value="1">1</option>
+            <option th:value="2">2</option>
+            <option th:value="3">3</option>
+            <option th:value="4">4</option>
+            <option th:value="5">5</option>
+        </select>
+        <br>
+        <label>Your experiences:  </label>
+        <input type="text" name="content">
+        <br>
+        <button type="submit">Send review</button>
+    </form>
+
+    <article th:each="ertekeles : ${ertekelesek}">
+        <h1 th:text="${ertekeles.user}"></h1>
+        <p th:text="${ertekeles.stars}+'/5'"></p>
+        <p th:text="${ertekeles.content}"></p>
+    </article>
+</body>
+</html>
