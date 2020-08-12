@@ -17,6 +17,15 @@
         </form>
     </div>
 </header>
-
+<table>
+    <tr th:each="termek : ${termekek}">
+        <td><a th:text="${termek.termek}" th:href="'/hirdetes/'+${termek.id}"></a></td>
+        <td th:text="${termek.description}"></td>
+        <td th:text="${termek.price}"></td>
+        <td th:text="${termek.numberOfSells}"></td>
+        <td th:text="${termek.user}"></td>
+        <td th:text="${termek.category}"></td>
+    </tr>
+</table>
 </body>
 </html>

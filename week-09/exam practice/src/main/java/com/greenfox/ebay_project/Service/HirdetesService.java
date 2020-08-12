@@ -33,4 +33,8 @@ public class HirdetesService {
                 .filter(h -> h.getTermek().contains(search))
                 .collect(Collectors.toList());
     }
+
+    public Hirdetes findHirdetesById(Long id) {
+        return repo.findFirstById(id);
+    }
 }
